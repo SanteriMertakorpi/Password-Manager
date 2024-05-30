@@ -1,0 +1,16 @@
+password-manager/node_modules
+password-manager/.next
+password-manager/out
+password-manager/.env.local
+password-manager/.env
+password-manager/logs
+
+backend/venv
+backend/__pycache__
+backend/logs
+backend/.env
+
+.git
+.gitignore
+Dockerfile
+docker-compose.yml
