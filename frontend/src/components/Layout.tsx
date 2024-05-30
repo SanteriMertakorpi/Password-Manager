@@ -18,13 +18,14 @@ const Layout: React.FC<LayoutProps> = ({title = 'Password Manager', children}) =
           <div className="space-x-4">
           <Link href="/" className="hover:text-gray-400">
               Home
-            </Link>
-            <Link href="/login" className="hover:text-gray-400">
-              Login
-            </Link>
-            <Link href="/signup" className="hover:text-gray-400">
-            Sign Up
-            </Link>
+          </Link>
+          <Link href="/dashboard" className="hover:text-gray-400">
+            Dashboard
+          </Link>
+          <Link href="/auth" className="hover:text-gray-400">
+            Login/Sign Up
+          </Link>
+            
           </div>
         </nav>
       </header>
