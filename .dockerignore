@@ -1,9 +1,9 @@
-password-manager/node_modules
-password-manager/.next
-password-manager/out
-password-manager/.env.local
-password-manager/.env
-password-manager/logs
+frontend/node_modules
+frontend/.next
+frontend/out
+frontend/.env.local
+frontend/.env
+frontend/logs
 
 backend/venv
 backend/__pycache__
