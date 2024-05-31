@@ -36,7 +36,7 @@
 */next-env.d.ts
 
 # Byte-compiled / optimized / DLL files
-__pycache__/
+__pycache__\
 *.py[cod]
 *.pyo
 *.pyc 
@@ -87,3 +87,5 @@ coverage.xml
 
 # Sphinx documentation
 docs/_build/
+
+*/venv
