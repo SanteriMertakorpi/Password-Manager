@@ -8,7 +8,7 @@ auth_bp = Blueprint('auth', __name__)
 credentials_bp = Blueprint('credentials', __name__)
 
 @auth_bp.route('/signup', methods=['POST'])
-@cross_origin()
+@cross_origin(origin='localhost',headers=['Content- Type','Authorization'])
 def signup():
     data = request.get_json()
     hashed_password = bcrypt.generate_password_hash(data['password']).decode('utf-8')
@@ -18,7 +18,7 @@ def signup():
     return jsonify({'message': 'User created successfully'}), 201
 
 @auth_bp.route('/login', methods=['POST'])
-@cross_origin() 
+@cross_origin(origin='localhost',headers=['Content- Type','Authorization'])
 def login():
     data = request.get_json()
     user = User.query.filter_by(username=data['username']).first()
@@ -28,7 +28,7 @@ def login():
     return jsonify({'message': 'Invalid credentials'}), 401
 
 @credentials_bp.route('/', methods=['GET', 'POST'])
-@cross_origin() 
+@cross_origin(origin='localhost',headers=['Content- Type','Authorization'])
 @jwt_required()
 def manage_credentials():
     user_id = get_jwt_identity()

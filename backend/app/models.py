@@ -1,5 +1,5 @@
 from . import db
-from datetime import datetime
+from datetime import datetime, timezone
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -13,4 +13,4 @@ class Credential(db.Model):
     website = db.Column(db.String(150), nullable=False)
     username = db.Column(db.String(150), nullable=False)
     password = db.Column(db.String(150), nullable=False)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    created_at = db.Column(db.DateTime, default=datetime.now(timezone.utc))

@@ -18,13 +18,13 @@ interface CredentialData {
 
 export const signUp = (userData: UserData) => api.post('/auth/signup', userData);
 export const login = (userData: UserData) => api.post('/auth/login', userData);
-export const fetchCredentials = (token: string) => api.get('/credentials', {
+export const fetchCredentials = (token: string) => api.get('/credentials/', {
   headers: {
-    Authorization: `Bearer ${token}`
+    Authorization: `Bearer ${token}`,
   }
 });
 
-export const addCredential = (credentialData: CredentialData, token: string) => api.post('/credentials', credentialData, {
+export const addCredential = (credentialData: CredentialData, token: string) => api.post('/credentials/', credentialData, {
   headers: {
     Authorization: `Bearer ${token}`
   }

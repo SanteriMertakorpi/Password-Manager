@@ -1,5 +1,4 @@
 import json
-import pytest
 from app.models import User
 
 def test_signup(test_client):
