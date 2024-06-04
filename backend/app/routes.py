@@ -2,11 +2,13 @@ from flask import Blueprint, request, jsonify
 from .models import User, Credential
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
 from . import db, bcrypt
+from flask_cors import cross_origin
 
 auth_bp = Blueprint('auth', __name__)
 credentials_bp = Blueprint('credentials', __name__)
 
 @auth_bp.route('/signup', methods=['POST'])
+@cross_origin()
 def signup():
     data = request.get_json()
     hashed_password = bcrypt.generate_password_hash(data['password']).decode('utf-8')
@@ -16,6 +18,7 @@ def signup():
     return jsonify({'message': 'User created successfully'}), 201
 
 @auth_bp.route('/login', methods=['POST'])
+@cross_origin() 
 def login():
     data = request.get_json()
     user = User.query.filter_by(username=data['username']).first()
@@ -25,6 +28,7 @@ def login():
     return jsonify({'message': 'Invalid credentials'}), 401
 
 @credentials_bp.route('/', methods=['GET', 'POST'])
+@cross_origin() 
 @jwt_required()
 def manage_credentials():
     user_id = get_jwt_identity()

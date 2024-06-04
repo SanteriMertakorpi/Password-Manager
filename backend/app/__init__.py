@@ -16,7 +16,7 @@ def create_app():
     db.init_app(app)
     bcrypt.init_app(app)
     jwt.init_app(app)
-
+    
     from app.routes import auth_bp, credentials_bp
     app.register_blueprint(auth_bp, url_prefix='/api/auth')
     app.register_blueprint(credentials_bp, url_prefix='/api/credentials')
