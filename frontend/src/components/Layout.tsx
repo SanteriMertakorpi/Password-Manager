@@ -7,6 +7,17 @@ interface LayoutProps {
   children: React.ReactNode;
 };
 const Layout: React.FC<LayoutProps> = ({title = 'Password Manager', children}) => {
+  const [loggedIn, setLoggedIn] = React.useState(false);
+  React.useEffect(() => {
+    if (localStorage.getItem('token')) {
+      setLoggedIn(true);
+    }
+  }, []);
+  const handleLogout = () => {
+    setLoggedIn(false);
+    localStorage.removeItem('token');
+    window.location.href = '/';
+  };
   return(
     <div className="flex flex-col min-h-screen">
       <Head>
@@ -22,9 +33,15 @@ const Layout: React.FC<LayoutProps> = ({title = 'Password Manager', children}) =
           <Link href="/dashboard" className="hover:text-gray-400">
             Dashboard
           </Link>
-          <Link href="/auth" className="hover:text-gray-400">
-            Login/Sign Up
-          </Link>
+          {loggedIn ? (
+              <button onClick={handleLogout} className="hover:text-gray-400">
+                Logout
+              </button>
+            ) : (
+              <Link href="/auth" className="hover:text-gray-400">
+                Login/Sign Up
+              </Link>
+            )}
             
           </div>
         </nav>

@@ -35,7 +35,7 @@ const CredentialList: React.FC<CredentialListProps> = ({ credentials }) => {
                   <strong className="mr-2">Website:</strong>
                   {credential.website}
                   <a href={credential.website} target="_blank" rel="noopener noreferrer" className="flex items-center text-blue-500 underline">
-                    <Image src="/img/link.svg" alt="Link" width={20} height={20} className="ml-1" priority={false}/>
+                    <Image src="/img/link.svg" alt="Link" width={20} height={20} className="ml-1" fetchPriority="high"/>
                   </a>
                 </div>
                 <div className="flex items-center">
@@ -43,19 +43,19 @@ const CredentialList: React.FC<CredentialListProps> = ({ credentials }) => {
                   <span className="flex items-center">
                     {credential.username}
                     <button onClick={() => handleCopy(credential.username)} className="ml-1" >
-                      <Image src="/img/copy.svg" alt="Copy Username" width={24} height={24} className="hover:opacity-80 cursor-pointer" priority={false}/>
+                      <Image src="/img/copy.svg" alt="Copy Username" width={24} height={24} className="hover:opacity-80 cursor-pointer" />
                     </button>
                   </span>
                 </div>
                 <div className="flex items-center">
                   <strong className="mr-2">Password:</strong>
                   <span className="flex items-center">
-                    {showPassword ? credential.password : credential.password.split('').map(() => <span className="password-dot">*</span>)}
+                    {showPassword ? credential.password : credential.password.split('').map((char, index) => <span className="password-dot" key={index}>*</span>)}
                     <button onClick={() => handleCopy(credential.password)} className="ml-1">
-                      <Image src="/img/copy.svg" alt="Copy Password" width={24} height={24} className="hover:opacity-80 cursor-pointer" priority={false}/>
+                      <Image src="/img/copy.svg" alt="Copy Password" width={24} height={24} className="hover:opacity-80 cursor-pointer" />
                     </button>
                     <button onClick={() => setShowPassword(!showPassword)} className="ml-1">
-                      <Image src="/img/eye.svg" alt="Reveal Password" width={24} height={24} className="hover:opacity-80 cursor-pointer" priority={false}/>
+                      <Image src="/img/eye.svg" alt="Reveal Password" width={24} height={24} className="hover:opacity-80 cursor-pointer" />
                     </button>
                   </span>
                 </div>
