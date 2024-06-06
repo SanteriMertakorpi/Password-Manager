@@ -4,10 +4,12 @@
 
 This is an online password manager for personal usage.
 You can create an account for yourself and keep track of your credentials for different sites.
-![Password Manager](img\login_screen.png)
+
+![Password Manager](img/login_screen.png)
 
 You can add the site which thease credentials are for, the username and the passowr you made up or generated. You can see all your saved credentials and search for a specific one.
-![Password Manager](img\dashboard.png)
+
+![Password Manager](img/dashboard.png)
 
 The frontend is made using Next.js and Typescript and Tailwind CSS.
 Backend is made using Pythons Flask library. The database is made with SQLite.
